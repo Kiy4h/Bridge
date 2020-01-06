@@ -5,7 +5,7 @@ from gi.repository import Gtk
 from gi.repository import GObject
 from gi.repository import GLib
 import pygame
-import event
+from . import event
 
 CANVAS = None
 

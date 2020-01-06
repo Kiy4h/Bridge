@@ -24,8 +24,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.              
 """
-from locals import *
-from elements import box2d
+from .locals import *
+from .elements import box2d
 
 class CallbackHandler:
     # List of contact callbacks and shapes to start them - sorted by type for quicker access  
@@ -37,7 +37,7 @@ class CallbackHandler:
         
         # init callback dict to avoid those slow try 
         # (especially for self.get, as it is called *often*)
-        for i in xrange(10):
+        for i in range(10):
             self.callbacks[i] = []
          
     def add(self, callback_type, callback_handler, *args):
@@ -56,7 +56,7 @@ class CallbackHandler:
                 if self.parent.listener == None:
                     self.parent.listener = kContactListener(self.get)
                     self.parent.world.SetContactListener( self.parent.listener )
-                    print "* ContactListener added"
+                    print("* ContactListener added")
             
             # Get callback dict for this callback_type
             c = self.callbacks[callback_type]
